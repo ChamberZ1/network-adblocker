@@ -14,8 +14,16 @@ In this repo, I document my process of:
 The goal is to end up with a low-power Raspberry Pi acting as a dedicated DNS sinkhole for my home network, giving me network-wide ad blocking while I learn more about DNS, Linux, and basic homelab/network setup.
 
 # How it works
+
+### DNS
+Domain Name System (DNS) is the service that translates human-readable domain names like `www.example.com` into IP addresses that computers use to talk to each other.
+
+When a user types a website into a browser, their device sends a DNS query (typically through a router) to a DNS resolver. This resolver is usually run by the user’s Internet Service Provider (ISP) or by a public DNS provider such as Cloudflare or Google.
+
+The resolver looks up the IP address for that domain (using its own cache or by querying other DNS servers on the internet), then sends the answer back. The router passes that response to the user’s device, and the browser then knows which IP address to connect to in order to load the website.
+
 ### Pi-hole
-Pi-hole is a DNS sinkhole that protects your devices from unwanted content. A DNS sinkhole acts as a DNS server that checks each requested domain against blocklists (and optionally allowlists). If the domain is allowed, Pi-hole forwards the query to an upstream DNS server and returns the real IP address. If the domain is blocked, Pi-hole instead returns a non-routable address (like `0.0.0.0`), effectively preventing the connection.
+Pi-hole is a DNS sinkhole that protects devices from unwanted content. A DNS sinkhole acts as a DNS server that checks each requested domain against blocklists (and optionally allowlists). If the domain is allowed, Pi-hole forwards the query to an upstream DNS resolver and returns the resulting IP address to the client. If the domain is blocked, Pi-hole instead returns the non-routable address `0.0.0.0`, effectively preventing the connection.
 
 ### Diagram
 ![Diagram of home network with Pi-hole](diagram.png)
@@ -30,7 +38,7 @@ Pi-hole is a DNS sinkhole that protects your devices from unwanted content. A DN
 - Computer (to write operating system to micro SD)
 
 ### Steps:
-1) 
+1) TO BE CONTINUED
 
 2) 
 
