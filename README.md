@@ -64,8 +64,12 @@ I want to set just my iPhone to use Pi-hole for now. To do that:
 1) I changed the number of days a query is kept in the DB to 21 to prevent my microSD card from filling up.
 2) I will likely increase the "Privacy Level" later on so that Pi-hole doesn't log as much details. For now, I want to keep it at full detail to play around with it.
 
+# Pictores
+![Pi-hole (not visible) on Raspberry Pi Zero 2 W plugged into wall outlet]()
+![Pi-hole web GUI]()
+
 # Cool!
-1) RegEx rules can be added for custom domain blocking!
+1) RegEx rules can be added for custom domain blocking.
 2) Pi-hole could be used to potentially detect rogue devices. For example: If a host on the network (like an IoT device) is sending queries to suspicious domains, assuming Pi-hole is configured as its DNS server, those queries would be logged and inspected. (potential future experiment?) 
 
 # Limitations
