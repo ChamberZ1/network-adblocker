@@ -65,7 +65,11 @@ I want to set just my iPhone to use Pi-hole for now. To do that:
 2) I will likely increase the "Privacy Level" later on so that Pi-hole doesn't log as much details. For now, I want to keep it at full detail to play around with it.
 
 # Pictores
+Lil cutie patootie pi
+
 ![Pi-hole (not visible) on Raspberry Pi Zero 2 W plugged into wall outlet](piholepi.JPG)
+Pi-hole web GUI
+
 ![Pi-hole web GUI](piholeGUi.jpg)
 
 # Cool!
