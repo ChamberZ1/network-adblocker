@@ -36,7 +36,7 @@ The diagram illustrates how DNS queries from a client in a home network are proc
 - Micro USB (for powering the Pi)
 - Computer (to write operating system to micro SD)
 
-### Steps:
+### Installing and Configuring Pi-hole:
 1) Download [Raspberry Pi Imager](https://www.raspberrypi.com/software/)
 2) Plug in microSD card to computer and run Raspberry Pi Imager
 3) Choose `Raspberry Pi Zero 2 W` for Device, and `Raspberry Pi OS Lite` for OS (the one that says "A port of Debian Bookworm...").
@@ -48,8 +48,17 @@ The diagram illustrates how DNS queries from a client in a home network are proc
 9) I recommend Google or Cloudflare for upstream DNS resolvers.
 10) Query logging allows you to see all queries. Choosing yes here allows you to see which ad domains were blocked.
 11) I chose the show everything option for more comprehensive logs.
-12) Note the Pi-hole's static IP and web login
+12) Note the Pi-hole's static IP and web login.
 13) Go check out the web GUI at `https://[Pi-hole_static_IP]/admin`
+### Configuring Device DNS to use Pi-hole
+I want to set just my iPhone to use Pi-hole for now. To do that:
+
+1) Go to Settings > Wifi.
+2) Click the info button next to the connected network.
+3) Scroll down to DNS > Configure DNS.
+4) Select Manual and Add Server.
+5) Enter Pi-hole's IP address.
+6) Remove other DNS servers to ensure the device uses Pi-hole.
 
 # Acknowledgements
 - [WesOps](https://www.youtube.com/watch?v=d_3h5n9mPdI) on YouTube. His video was what introduced me to Pi-hole and inspired me to give this a try.
