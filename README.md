@@ -4,12 +4,7 @@ In the digital age, data gathering, tracking, and ads are massive revenue stream
 
 For people who value privacy and cleaner pages, tools like Pi-hole (and the uBlock Origin browser extension, though that’s outside the scope of this project) can make a huge difference. Pi-hole is a DNS-based filtering tool, designed for Linux systems, that’s primarily used as a network-wide ad and tracker blocker.
 
-In this repo, I document my process of:
-
-- Setting up a Raspberry Pi Zero 2 W  
-- Installing and configuring the OS  
-- Installing Pi-hole  
-- Wiring it into my home network so all local DNS traffic runs through it
+In this repo, I document my process of setting up and configuring a Raspberry Pi Zero 2 W to use Pi-hole to block ads for devices on my network.
 
 The goal is to end up with a low-power Raspberry Pi acting as a dedicated DNS sinkhole for my home network, giving me network-wide ad blocking while I learn more about DNS, Linux, and basic homelab/network setup.
 
@@ -47,7 +42,10 @@ The diagram illustrates how DNS queries from a client in a home network are proc
 3) Choose `Raspberry Pi Zero 2 W` for Device, and `Raspberry Pi OS Lite` for OS (the one that says "A port of Debian Bookworm...").
 4) Set hostname to something simple like "pihole", create a Pi account, enter network info, and enable SSH w/ password auth.
 5) Finish installing the OS onto the microSD, insert the microSD into the Pi, and connect the Pi to a power supply.
-6) Give it a minute or so to finish booting, then open up cmd and type: `ssh [username]@[hostname].local` and enter your password.
+6) Give the Pi a minute or so to finish booting, then open up cmd on your computer and type: `ssh [username]@[hostname].local` and enter the password. This allows us to SSH into the Raspberry Pi Zero 2 W and install Pi-hole.
+7) Go to [Pi-hole documentation](https://docs.pi-hole.net/main/basic-install/), copy the One-Step Automated Install command `curl -sSL https://install.pi-hole.net | bash`, paste into your terminal, and run.
+8) Follow the prompts.
+9) NEED TO SET STATIC IP NEXT.
 
 # Acknowledgements
 - [WesOps](https://www.youtube.com/watch?v=d_3h5n9mPdI) on YouTube. His video was what introduced me to Pi-hole and inspired me to give this a try.
