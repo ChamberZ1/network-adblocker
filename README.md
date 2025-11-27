@@ -21,11 +21,11 @@ The resolver looks up the IP address for that domain (using its own cache or by 
 When a user visits a website that includes ads or tracking scripts, the browser does not only resolve the main site’s domain. It also issues additional DNS queries for third-party domains that serve ads, analytics, and other embedded content. Because these domains must still be resolved through DNS, Pi-hole can be used to identify and block many of these requests, stopping the unwanted content from loading.
 
 ### Pi-hole
-Pi-hole is a DNS sinkhole that protects devices from unwanted content. A DNS sinkhole acts as a DNS server that checks each requested domain against blocklists (and optionally allowlists). If the domain is allowed, Pi-hole forwards the query to an upstream DNS resolver and returns the resulting IP address to the client. If the domain is blocked, Pi-hole instead returns the non-routable address `0.0.0.0`, effectively preventing the connection.
+Pi-hole is a DNS sinkhole that protects devices from unwanted content. A DNS sinkhole acts as a DNS server that checks each requested domain against blocklists (and optionally allowlists). If the domain is allowed, Pi-hole forwards the query to an upstream DNS resolver and returns the resulting IP address to the client. If the domain is blocked, Pi-hole instead returns the DNS error code: `NXDOMAIN`, “Non-existent domain”, effectively preventing the connection.
 
 ### Diagram
 ![Diagram of home network with Pi-hole](diagram.png)
-The diagram illustrates how DNS queries from a client in a home network are processed by Pi-hole and an upstream DNS resolver, including how blocked domains are returned as `0.0.0.0`.
+The diagram illustrates how DNS queries from a client in a home network are processed by Pi-hole and an upstream DNS resolver, including how blocked domains are returned as `0.0.0.0` (By default, Pi-hole returns `NXDOMAIN` as  mentioned above. They are functionally the same).
 
 # Setup
 ### What I used: 
