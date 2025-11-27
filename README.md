@@ -46,7 +46,8 @@ The diagram illustrates how DNS queries from a client in a home network are proc
 2) Plug in microSD card to computer and run Raspberry Pi Imager
 3) Choose `Raspberry Pi Zero 2 W` for Device, and `Raspberry Pi OS Lite` for OS (the one that says "A port of Debian Bookworm...").
 4) Set hostname to something simple like "pihole", create a Pi account, enter network info, and enable SSH w/ password auth.
-5) WAITING FOR MY MICRO USB CHARGER TO COME IN
+5) Finish installing the OS onto the microSD, insert the microSD into the Pi, and connect the Pi to a power supply.
+6) Give it a minute or so to finish booting, then open up cmd and type: `ssh [username]@[hostname].local` and enter your password.
 
 # Acknowledgements
 - [WesOps](https://www.youtube.com/watch?v=d_3h5n9mPdI) on YouTube. His video was what introduced me to Pi-hole and inspired me to give this a try.
