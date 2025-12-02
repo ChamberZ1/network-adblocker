@@ -70,7 +70,7 @@ Lil cutie patootie pi
 ![Pi-hole (not visible) on Raspberry Pi Zero 2 W plugged into wall outlet](piholepi.JPG)
 Pi-hole web GUI
 
-![Pi-hole web GUI](piholeGUi.jpg)
+![Pi-hole web GUI](piholeGUI.png)
 
 # Cool!
 1) RegEx rules can be added for custom domain blocking.
