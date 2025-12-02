@@ -15,7 +15,7 @@ Supposedly, WPAD first tries to obtain the file via DHCP, then DNS (which is how
 So, I filtered for DHCP packets to verify this and found that in fact, within the `Option (55) Parameter Request List` included in the DHCP packets, is list item `(252) Private/Proxy autodiscovery` which is saying to the DHCP server: "If you support option 252 (WPAD URL), please send it to me". 
 ![DHCP autodiscovery](252autodiscover.png)
 
-As for LLMNR/NetBIOS, I asked ChatGPT how to test if I have LLMNR enabled, and it told me to ping a nonexistent hostname while capturing on Wireshark with an `llmnr` filter. If I see LLMNR packets, then I have it enabled. Evidently, I have LLMNR enabled.
+As for LLMNR/NetBIOS, I asked ChatGPT how to test if I have LLMNR enabled, and it told me to ping a nonexistent hostname while capturing on Wireshark with an `llmnr` filter. If I see LLMNR packets, then I have it enabled. Evidently, I have LLMNR enabled. Wireshark capture resulting from ping command: `ping lanwqdwd1n`:
 
 ![LLMNR enabled](llmnr-enabled.png)
 
