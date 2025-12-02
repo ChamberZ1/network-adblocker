@@ -1,5 +1,5 @@
 # Description
-This file serves as documentation of my use of Wireshark to analyze and understand my DNS traffic and Pi-hole in action.
+This file documents how I used Wireshark (with Pi-hole running on my network) to investigate WPAD-related DNS traffic and then harden my Windows machine by analyzing and disabling WPAD, LLMNR, and NetBIOS.
 
 ### Web Proxy Auto-Discovery (WPAD)
 Upon opening my Wireshark and capturing from Wi-Fi, I was faced with a bunch of existing queries, leaving me clueless on where to start. So, I restarted the capture and noticed that I had a repeating set of DNS queries for `wpad.lan`. 
