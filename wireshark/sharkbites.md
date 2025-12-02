@@ -22,7 +22,13 @@ I asked ChatGPT how to test if I have LLMNR enabled, and it told me to ping a no
 As for NetBIOS, I found a [blog post](https://blog.alexmags.com/posts/disable-netbios) that showed how to check if it is enabled.
 ![netbios enabled](netbios-enabled.png)
 
-Having WPAD, LLMNR, and NetBIOS on is not safe if you use your machine in a public network. I'm not going to get deep into it because this is not a rabbit hole I want to go down right now. But simply put, these protocols have known exploitable vulnerabilities that may lead to Man-in-the-middle (MITM) attacks (Source: [SentinelOne](https://www.sentinelone.com/blog/in-the-wild-wpad-attack-how-threat-actors-abused-flawed-protocol-for-years/)). The general flow goes like this: client/victim requests information from the network, In a secure home/private network which contains only known and trusted machines, having these protocols enabled is likely ok. However, if you use a laptop and travel with it to airports or cafes where you us public Wi-Fi, it is advised to turn these protocols off. I am at home most of the time but just for good practice and in the event I do travel and access a public network with my laptop in the future, I am going to turn these protocols off. 
+Having WPAD, LLMNR, and NetBIOS enabled is not ideal if you use your machine on public networks. These protocols have well-known, long-standing weaknesses that can be abused for man-in-the-middle (MITM) attacks (For example: [SentinelOne](https://www.sentinelone.com/blog/in-the-wild-wpad-attack-how-threat-actors-abused-flawed-protocol-for-years/)). 
+
+The general flow goes like this: 
+1) A client/victim sends a name-resolution or auto-discovery request that any host on the local network is allowed to answer.
+2) An attacker on the same network impersonates the legitimate responder and, from there, can redirect traffic and/or perform MITM.
+
+On a secured private/home network with only trusted devices, the risk is much lower, and these protocols will usually “just work” without obvious issues. However, on public or untrusted Wi-Fi (airports, cafés, hotels, etc.), you have no control over who is on the same network, which makes these weaknesses very attractive to attackers. Because I use a laptop that may connect to public Wi-Fi, I’ve chosen to disable WPAD, LLMNR, and NetBIOS. It’s good hardening practice, and I don’t rely on any legacy services that require them.
 
 Disabling WPAD:
 ![Disable WPAD](disablewpad.png)
