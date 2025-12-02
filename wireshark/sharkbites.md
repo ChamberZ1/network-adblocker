@@ -35,6 +35,14 @@ Disabling WPAD:
 
 Disabling LLMNR:
 
-Disabling NetBIOS:
 
-4) End off by fixing formatting and making sure all iamges are properly added and included in here.
+Disabling NetBIOS:
+1) Press Win + R, type `ncpa.cpl`, press enter.
+2) Right click the active adapter (in my case it is Wi-Fi), click on Properties.
+3) Select Internet Protocol Version 4 (TCP/IPv4), click on Properties.
+4) In the IPv4 window, click Advanced.
+5) Go to the WINS tab.
+6) Under NetBIOS setting, select "Disable NetBIOS over TCP/IP"
+![disable netbios](disable-netbios.png)
+
+8) End off by fixing formatting and making sure all iamges are properly added and included in here.
