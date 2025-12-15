@@ -72,5 +72,14 @@ Using Wireshark to capture DNS traffic again, I no longer see DNS queries for `w
 ---
 
 ## 12/15/2025 Update
-My laptop was sending WPAD queries again. I looked up how to disable WPAD, and found this [Reddit post](https://www.reddit.com/r/sysadmin/comments/1b7vxy9/disabling_wpad_which_is_the_preferred_way/). I followed the ones I could to disable WPAD and this is what I ended up doing:
+I noticed my laptop was sending WPAD queries again. I looked up how to disable WPAD, and found this [Reddit post](https://www.reddit.com/r/sysadmin/comments/1b7vxy9/disabling_wpad_which_is_the_preferred_way/). Using it as reference, this is what I ended up doing:
+
+Followed step 3: disabling `Setting WinHTTP WebProxy Auto-Discover Service`.
+![disable WinHTTP WebProxy Auto-Discover Service](disable-winhttp-wpad.png)
+
+At this step, upon disabling it and clicking apply, it would automatically be re-enabled. So it turns out I cannot disable WPAD fully. This is because `WinHttpAutoProxySvc` is a core OS component, and backs the WinHTTP HTTP stack that other Windows components and apps use. Because of this, I am deciding not to proceed further to try and bypass this. The mitigations that I have took (disabling LLMNR, NetBIOS, and turning off Proxy auto-detect) is sufficient for now. I'm calling it here with WPAD, and adding it to the deny list on Pi-hole (this doesn't do anything other than stop it from showing up on the Pi-hole logs).  
+
+
+
+
 
