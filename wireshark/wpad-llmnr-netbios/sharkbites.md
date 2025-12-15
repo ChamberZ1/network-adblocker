@@ -71,13 +71,21 @@ Using Wireshark to capture DNS traffic again, I no longer see DNS queries for `w
 
 ---
 
-## 12/15/2025 Update
-I noticed my laptop was sending WPAD queries again. I looked up how to disable WPAD, and found this [Reddit post](https://www.reddit.com/r/sysadmin/comments/1b7vxy9/disabling_wpad_which_is_the_preferred_way/). Using it as reference, this is what I ended up doing:
 
-Followed step 3: disabling `Setting WinHTTP WebProxy Auto-Discover Service`.
+## 12/15/2025 Update
+I noticed my laptop was sending WPAD queries again. I looked up how to disable WPAD and found this [Reddit post](https://www.reddit.com/r/sysadmin/comments/1b7vxy9/disabling_wpad_which_is_the_preferred_way/). Using it as a reference, this is what I ended up doing:
+
+I first tried step 3: disabling the **WinHTTP WebProxy Auto-Discover Service**.
 ![disable WinHTTP WebProxy Auto-Discover Service](disable-winhttp-wpad.png)
 
-At this step, upon disabling it and clicking apply, it would automatically be re-enabled. So it turns out I cannot disable WPAD fully. This is because `WinHttpAutoProxySvc` is a core OS component, and backs the WinHTTP HTTP stack that other Windows components and apps use. Because of this, I am deciding not to proceed further to try and bypass this. The mitigations that I have took (disabling LLMNR, NetBIOS, and turning off Proxy auto-detect) is sufficient for now. I'm calling it here with WPAD, and adding it to the deny list on Pi-hole (this doesn't do anything other than stop it from showing up on the Pi-hole logs).  
+However, after unchecking it and clicking Apply, it was automatically re-enabled. In other words, I could not fully disable the WinHttpAutoProxySvc service. This is because it is a core OS component backing the WinHTTP HTTP stack that other Windows components and apps rely on. Because of this, I decided not to keep trying to force-disable the service itself.
+
+After discussing this with ChatGPT, I instead apply a series of changes that block the *behavior* of WinHTTP’s Web Proxy Auto-Discover (WPAD) logic, even though the *service* remains enabled.
+
+I blocked WinHTTP from using WPAD / auto-proxy discovery via Registry Editor:
+![block auto-proxy discovery behavior](internet-settings.png)
+
+Combined with the earlier mitigations (disabling LLMNR, disabling NetBIOS over TCP/IP, and turning off proxy auto-detect), this is sufficient for me. I’m calling it here for WPAD and have also added `wpad.lan` to the deny list on Pi-hole, so Pi-hole will always block that domain instead of forwarding it upstream and cluttering the logs.
 
 
 
